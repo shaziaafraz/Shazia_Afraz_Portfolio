@@ -99,6 +99,22 @@ document.querySelectorAll('.service-card').forEach(card => {
     });
 });
 
+// Typing effect for hero subtitle (optional enhancement)
+const heroSubtitle = document.querySelector('.hero-subtitle');
+if (heroSubtitle) {
+    const text = heroSubtitle.textContent;
+    heroSubtitle.textContent = '';
+    let i = 0;
+    const typeWriter = () => {
+        if (i < text.length) {
+            heroSubtitle.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 50);
+        }
+    };
+    // Uncomment the line below to enable typing effect
+    // setTimeout(typeWriter, 1000);
+}
 
 
 // Add fade-in animation to hero elements on load
