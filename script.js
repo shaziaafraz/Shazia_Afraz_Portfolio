@@ -99,7 +99,83 @@ document.querySelectorAll('.service-card').forEach(card => {
     });
 });
 
+// Certificate modal
+const certModal = document.getElementById('certificate-modal');
+if (certModal) {
+    const openModal = (btn) => {
+        if (!btn) return;
+
+        const name = btn.getAttribute('data-certificate-name') || 'Certificate Name';
+        const org = btn.getAttribute('data-certificate-org') || 'IBM via Coursera';
+        const grade = btn.getAttribute('data-certificate-grade') || '99.50%';
+        const category = btn.getAttribute('data-certificate-category') || 'Placeholder Category';
+        const description = btn.getAttribute('data-certificate-description') || 'Full description placeholder.';
+        const skills = btn.getAttribute('data-certificate-skills') || 'Placeholder skill 1, Placeholder skill 2';
+        const verifyUrl = btn.getAttribute('data-certificate-verify-url') || '';
+
+        document.getElementById('certificate-modal-title').textContent = name;
+        document.getElementById('certificate-modal-org').textContent = org;
+        document.getElementById('certificate-modal-grade').textContent = grade;
+        document.getElementById('certificate-modal-category').textContent = category;
+        document.getElementById('certificate-modal-description').textContent = description;
+        document.getElementById('certificate-modal-skills').textContent = skills;
+
+        const verifyBtn = document.getElementById('certificate-modal-verify');
+        if (verifyBtn) {
+            if (verifyUrl) {
+                verifyBtn.disabled = false;
+                verifyBtn.style.opacity = '1';
+                verifyBtn.onclick = () => {
+                    window.open(verifyUrl, '_blank', 'noopener,noreferrer');
+                };
+            } else {
+                verifyBtn.disabled = true;
+                verifyBtn.style.opacity = '0.6';
+                verifyBtn.onclick = null;
+            }
+        }
+
+
+        certModal.classList.add('is-open');
+        certModal.setAttribute('aria-hidden', 'false');
+        certModal.dataset.opened = 'true';
+    };
+
+    const closeModal = () => {
+        certModal.classList.remove('is-open');
+        certModal.setAttribute('aria-hidden', 'true');
+        certModal.dataset.opened = 'false';
+    };
+
+    document.querySelectorAll('.details-btn[data-certificate-name]').forEach(btn => {
+        btn.addEventListener('click', () => openModal(btn));
+    });
+
+    // Also open when user clicks anywhere on the certificate card
+    document.querySelectorAll('.certificate-card').forEach(card => {
+        card.addEventListener('click', (e) => {
+            // avoid double-open when clicking button itself
+            if (e.target && e.target.classList && e.target.classList.contains('details-btn')) return;
+            const btn = card.querySelector('.details-btn[data-certificate-name]');
+            openModal(btn);
+        });
+    });
+
+    certModal.addEventListener('click', (e) => {
+        if (e.target && e.target.getAttribute && e.target.getAttribute('data-modal-close') === 'true') {
+            closeModal();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && certModal.classList.contains('is-open')) {
+            closeModal();
+        }
+    });
+}
+
 // Parallax effect removed for normal section flow
+
 
 // Typing effect for hero subtitle (optional enhancement)
 const heroSubtitle = document.querySelector('.hero-subtitle');
