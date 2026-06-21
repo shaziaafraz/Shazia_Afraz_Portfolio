@@ -1,888 +1,388 @@
-/* Reset and Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
-    color: #ffffff;
-    background: #0A0A0A;
-    overflow-x: hidden;
-}
-
-h1, h2, h3, h4 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-}
-
-h1 {
-    font-size: 3rem;
-}
-
-h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-}
-
-h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-p {
-    color: #CCCCCC;
-}
-
-.container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-/* Navigation */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(10, 10, 10, 0.8);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    transition: background 0.3s ease;
-}
-
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-}
-
-.logo {
-    font-size: 1.5rem;
-    background: linear-gradient(90deg, #FF6B9A, #A95EFF, #00C2FF);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-weight: 800;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-}
-
-.nav-links li {
-    margin-left: 2rem;
-}
-
-.nav-links a {
-    color: #ffffff;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #FF6B9A, #A95EFF, #00C2FF);
-    transition: width 0.3s ease;
-}
-
-.nav-links a:hover::after,
-.nav-links a.active::after {
-    width: 100%;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-    background: linear-gradient(90deg, #FF6B9A, #A95EFF, #00C2FF);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-/* Hero Section */
-.hero {
-    display: flex;
-    align-items: center;
-    position: relative;
-    padding: 5rem 0;
-}
-
-.hero-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-}
-
-.hero-left {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    animation: fadeInUp 0.6s ease-out;
-    text-align: left;
-    line-height: 1.0;
-}
-
-.profile-pic {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin: 0 auto 1rem;
-    border: 3px solid #CCCCCC;
-    object-fit: cover;
-}
-
-.hero-left h1 {
-    font-size: 3.5rem;
-    margin: 0;
-    font-weight: 800;
-}
-
-.hero-greeting {
-    color: #ffffff;
-    display: block;
-}
-
-.gradient-text {
-    background: linear-gradient(90deg, #FF6B9A, #A95EFF, #00C2FF);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.hero-subtitle {
-    font-size: 1.5rem;
-    color: #CCCCCC;
-    margin: 0;
-    font-weight: 500;
-}
-
-.hero-expert {
-    font-size: 1.2rem;
-    color: #CCCCCC;
-    margin: -0.3rem 0 0.2rem 0;
-    font-weight: 400;
-}
-
-.expert-highlight {
-    color: #EA384C;
-    font-weight: 600;
-}
-
-.hero-tagline {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #CCCCCC;
-    margin: 0.2rem 0;
-    font-weight: 400;
-}
-
-.hero-description {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #CCCCCC;
-    margin: 0.2rem 0 0.5rem;
-    font-weight: 400;
-}
-
-.btn-hire {
-    background: linear-gradient(90deg, #FF6B9A, #A95EFF, #00C2FF);
-    color: #ffffff;
-    padding: 0.75rem 1.5rem;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 107, 154, 0.3);
-    display: inline-block;
-    text-transform: uppercase;
-}
-
-.btn-hire:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 107, 154, 0.4);
-}
-
-.social-icons {
-    display: flex;
-    gap: 2rem;
-    margin-top: 2rem;
-    justify-content: center;
-    flex-direction: row;
-    align-items: center;
-}
-
-.social-icon {
-    text-decoration: none;
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.icon-box {
-    width: 45px;
-    height: 45px;
-    border: 1px solid #444;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    transition: all 0.3s ease;
-    background: #0f0f0f;
-    color: #ffffff;
-}
-
-.icon-label {
-    font-size: 0.8rem;
-    color: #CCCCCC;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.social-icon:hover .icon-box {
-    background: linear-gradient(90deg, #FF6B9A, #A95EFF, #00C2FF);
-    border-color: transparent;
-    transform: scale(1.1);
-    box-shadow: 0 4px 15px rgba(255, 107, 154, 0.3);
-}
-
-.social-icon:hover .icon-box {
-    color: #ffffff;
-}
-
-.social-icon:hover .icon-label {
-    color: #FF6B9A;
-}
-
-.hero-right {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    animation: fadeInUp 0.6s ease-out 0.2s both;
-}
-
-.circle-container {
-    position: relative;
-}
-
-.circle {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    position: absolute;
-    animation: pulse 3s ease-in-out infinite;
-}
-
-.circle-outline {
-    border: 3px solid #00C2FF;
-    background: transparent;
-    top: 0;
-    left: 0;
-}
-
-.circle-solid {
-    background: #00C2FF;
-    box-shadow: 0 0 50px rgba(0, 194, 255, 0.5);
-    top: 30px;
-    left: 30px;
-    width: 140px;
-    height: 140px;
-}
-
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(1.05);
-        opacity: 0.8;
-    }
-}
-
-/* Sections */
-section {
-    padding: 5rem 0;
-}
-
-.about, .portfolio, .contact {
-    background: rgba(26, 26, 26, 0.5);
-    backdrop-filter: blur(10px);
-}
-
-
-.about-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 3rem;
-}
-
-.education-item, .experience-item {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 1.5rem;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    margin-bottom: 1rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.education-item:hover, .experience-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(234, 56, 76, 0.2);
-}
-
-.skill-category {
-    margin-bottom: 2rem;
-}
-
-.skill-category ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.skill-category li {
-    background: rgba(234, 56, 76, 0.1);
-    color: #EA384C;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-}
-
-
-
-/* Projects (Premium recruiter-friendly glassmorphism) */
-
-#portfolio {
-    background: rgba(26, 26, 26, 0.5);
-    backdrop-filter: blur(10px);
-}
-
-#portfolio .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.75rem;
-}
-
-@media (max-width: 1024px) {
-    #portfolio .projects-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 768px) {
-    #portfolio .projects-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-#portfolio .projects-grid {
-    align-items: stretch;
-}
-
-#portfolio .project-card {
-    height: 100%;
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    word-break: break-word;
-    max-width: 100%;
-}
-
-#portfolio .project-card .project-top,
-#portfolio .project-card .project-description,
-#portfolio .project-card .project-tags,
-#portfolio .project-card .project-actions {
-    width: 100%;
-}
-
-#portfolio .project-card .project-actions {
-    margin-top: auto;
-}
-
-/* Make hover feel premium without layout shift */
-#portfolio .project-card {
-    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-}
-
-#portfolio .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 24px 70px rgba(0, 194, 255, 0.18);
-    border-color: rgba(255, 255, 255, 0.28);
-}
-
-#portfolio .project-card .project-description,
-#portfolio .project-card .project-tags,
-#portfolio .project-card .project-actions {
-    padding-left: 1.35rem;
-    padding-right: 1.35rem;
-}
-
-#portfolio .project-card .project-description {
-    overflow-wrap: anywhere;
-}
-
-#portfolio .project-card--featured {
-    grid-column: span 1;
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 30px 90px rgba(0, 194, 255, 0.26);
-    border-color: rgba(255, 255, 255, 0.32);
-    border-width: 2px;
-}
-
-
-#portfolio .project-card--featured::before {
-    opacity: 1;
-}
-
-#portfolio .project-featured-badge {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    z-index: 2;
-    padding: 0.45rem 0.8rem;
-    border-radius: 999px;
-    font-size: 0.82rem;
-    font-weight: 900;
-    letter-spacing: 0.3px;
-    color: #ffffff;
-    background: linear-gradient(90deg, rgba(255, 107, 154, 0.95), rgba(169, 94, 255, 0.95), rgba(0, 194, 255, 0.95));
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    box-shadow: 0 10px 30px rgba(0, 194, 255, 0.18);
-}
-
-#portfolio .project-card {
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: 18px;
-    overflow: hidden;
-    position: relative;
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-}
-
-
-#portfolio .project-card::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    background: linear-gradient(90deg, rgba(255, 107, 154, 0.45), rgba(169, 94, 255, 0.45), rgba(0, 194, 255, 0.45));
-    opacity: 0;
-    transition: opacity 0.35s ease;
-    z-index: 0;
-}
-
-#portfolio .project-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(1000px circle at 20% 0%, rgba(0, 194, 255, 0.10), transparent 45%),
-                radial-gradient(900px circle at 90% 10%, rgba(255, 107, 154, 0.10), transparent 45%);
-    opacity: 0.9;
-    z-index: 0;
-    pointer-events: none;
-}
-
-#portfolio .project-card > * {
-    position: relative;
-    z-index: 1;
-}
-
-#portfolio .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 18px 55px rgba(0, 0, 0, 0.55);
-    border-color: rgba(255, 255, 255, 0.22);
-}
-
-#portfolio .project-card:hover::before {
-    opacity: 1;
-}
-
-#portfolio .project-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1.35rem 1.35rem 0.75rem;
-}
-
-#portfolio .project-icon {
-    width: 52px;
-    height: 52px;
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-#portfolio .project-title-wrap {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-}
-
-#portfolio .project-name {
-    margin: 0;
-    font-size: 1.25rem;
-    line-height: 1.25;
-    letter-spacing: 0.2px;
-}
-
-#portfolio .project-category {
-    display: inline-flex;
-    width: fit-content;
-    padding: 0.35rem 0.85rem;
-    border-radius: 999px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: #ffffff;
-    background: linear-gradient(90deg, rgba(255, 107, 154, 0.22), rgba(169, 94, 255, 0.22), rgba(0, 194, 255, 0.22));
-    border: 1px solid rgba(255, 255, 255, 0.14);
-}
-
-#portfolio .project-description {
-    padding: 0 1.35rem;
-    margin: 0;
-    color: rgba(255, 255, 255, 0.80);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    min-height: 3.1em;
-}
-
-#portfolio .project-tags {
-    padding: 1rem 1.35rem 0.25rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-}
-
-#portfolio .project-tag {
-    padding: 0.35rem 0.75rem;
-    border-radius: 999px;
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: rgba(0, 194, 255, 0.95);
-    background: rgba(0, 194, 255, 0.10);
-    border: 1px solid rgba(0, 194, 255, 0.22);
-}
-
-#portfolio .project-actions {
-    padding: 1rem 1.35rem 1.25rem;
-    display: flex;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-}
-
-#portfolio .project-action-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.65rem 1rem;
-    border-radius: 14px;
-    font-weight: 800;
-    font-size: 0.9rem;
-    text-decoration: none;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.06);
-    transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
-}
-
-#portfolio .project-action-btn:hover {
-    transform: translateY(-3px);
-    border-color: rgba(255, 255, 255, 0.22);
-    background: rgba(255, 255, 255, 0.10);
-}
-
-#portfolio .project-action-btn-secondary {
-    border-color: rgba(255, 107, 154, 0.30);
-    background: rgba(255, 107, 154, 0.10);
-}
-
-@media (max-width: 1024px) {
-    #portfolio .projects-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 768px) {
-    #portfolio .projects-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-
-/* Contact */
-.contact-content {
-
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-}
-
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.contact-icon {
-    margin-right: 1rem;
-    font-size: 1.5rem;
-}
-
-.contact-item a {
-    color: #EA384C;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.contact-item a:hover {
-    color: #10B981;
-}
-
-.contact-form .form-group {
-    margin-bottom: 1rem;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 0.75rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    color: #ffffff;
-    font-family: 'Poppins', sans-serif;
-    transition: border-color 0.3s ease;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    outline: none;
-    border-color: #EA384C;
-    box-shadow: 0 0 0 2px rgba(234, 56, 76, 0.2);
-}
-
-.btn-primary {
-    background: linear-gradient(90deg, #FF6B9A, #A95EFF, #00C2FF);
-    color: #ffffff;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 25px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 107, 154, 0.3);
-    text-transform: uppercase;
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 107, 154, 0.4);
-}
-
-.btn-secondary {
-    background: transparent;
-    color: #CCCCCC;
-    padding: 0.75rem 1.5rem;
-    border: 2px solid #CCCCCC;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-}
-
-.btn-secondary:hover {
-    color: #ffffff;
-    border-color: #FF6B9A;
-}
-
-.hero-actions {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-}
-
-/* Footer */
-.footer {
-    background: rgba(10, 10, 10, 0.9);
-    padding: 3rem 0 1rem;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.footer-links a,
-.footer-social a {
-    display: block;
-    color: #A1A1AA;
-    text-decoration: none;
-    margin-bottom: 0.5rem;
-    transition: color 0.3s ease;
-}
-
-.footer-links a:hover,
-.footer-social a:hover {
-    color: #EA384C;
-}
-
-.footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 1rem;
-    text-align: center;
-    color: #A1A1AA;
-}
-
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .hero-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 2rem;
-    }
-
-    .social-icons {
-        justify-content: center;
-    }
-}
-
-@media (max-width: 768px) {
-    .navbar .container {
-        padding: 1rem;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-left h1 {
-        font-size: 2.8rem;
-    }
-
-    .circle {
-        width: 150px;
-        height: 150px;
-    }
-
-    .circle-solid {
-        width: 100px;
-        height: 100px;
-        top: 25px;
-        left: 25px;
-    }
-
-    .services-grid,
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .about-content {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 0 1rem;
-    }
-
-    .hero {
-        padding: 2rem 0;
-    }
-
-    .hero-left h1 {
-        font-size: 2.2rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
-
-    .hero-tagline {
-        font-size: 1rem;
-    }
-
-    .btn-hire {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
-    }
-
-    .social-icons {
-        gap: 1rem;
-    }
-
-    .icon-box {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
-    }
-
-    .circle {
-        width: 120px;
-        height: 120px;
-    }
-
-    .circle-solid {
-        width: 80px;
-        height: 80px;
-        top: 20px;
-        left: 20px;
-    }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shazia Afraz - Data Analyst Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Shazia Afraz</h1>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+
+                <li><a href="#portfolio">Projects</a></li>
+
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-left">
+                    <h1>
+                        <span class="hero-greeting">Hi,</span> <span class="gradient-text">I'm Shazia Afraz</span>
+                    </h1>
+                    <p class="hero-subtitle">Data Analyst | Machine Learning Enthusiast | AI Student</p>
+                    <p class="hero-tagline">Based in India, I'm a data analyst and machine learning enthusiast.</p>
+
+                    <p class="hero-description">Looking for a data analyst to build your insights and grow your business? Let's shake hands with me.</p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn-hire">Hire Me</a>
+                        <a href="https://drive.google.com/file/d/1pdHypHNWJHftNj1nUIuQr-s-1-rEdYuu/view?usp=drive_link" target="_blank" class="btn-secondary">View Resume</a>
+
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://github.com/shaziaafraz" target="_blank" class="social-icon">
+                            <div class="icon-box">🐱</div>
+                            <span class="icon-label">GitHub</span>
+                        </a>
+                        <a href="https://linkedin.com/in/shazia-afraz-9950a6306" target="_blank" class="social-icon">
+                            <div class="icon-box">👔</div>
+                            <span class="icon-label">LinkedIn</span>
+                        </a>
+                        <a href="mailto:shaziaafraz23@gmail.com" class="social-icon">
+                            <div class="icon-box">✉️</div>
+                            <span class="icon-label">Email</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-right">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 style="text-align: center;">About Me</h2>
+            <div class="about-content">
+                <div class="education">
+                    <h3>Education</h3>
+                    <div class="education-item">
+                        <h4>B.Tech in Artificial Intelligence & Data Science</h4>
+                        <p>Priyadarshini Institute of Science and Technology for Women, Khammam</p>
+                        <p>Expected 2026 | CGPA: 8.0</p>
+                    </div>
+                    <div class="education-item">
+                        <h4>Intermediate (MPC)</h4>
+                        <p>Sri Chaitanya Junior College</p>
+                        <p>2022 | 87%</p>
+                    </div>
+                    <div class="education-item">
+                        <h4>SSC</h4>
+                        <p>Nirmal Hridai High School</p>
+                        <p>2020 | GPA: 10</p>
+                    </div>
+                </div>
+                <div class="experience">
+                    <h3>Work Experience</h3>
+                    <div class="experience-item">
+                        <h4>Data Science Intern — 1stop.ai</h4>
+                        <p>Jun 2024 – Aug 2024</p>
+                        <p>Contributed to machine learning model development through data preprocessing and feature engineering.</p>
+                        <p>Conducted exploratory visualization and model evaluation to enhance performance accuracy.</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4>Data Analytics Intern — Labmentix Edtech Pvt. Ltd.</h4>
+                        <p>Sept 2025 – Dec 2025</p>
+                        <p>Assisted in data collection, cleaning, and preprocessing to ensure dataset accuracy and reliability.</p>
+                        <p>Conducted EDA and built Power BI dashboards to uncover actionable insights.</p>
+                        <p>Collaborated with analytics teams to interpret data findings and present results to stakeholders.</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4>Data Analysis Intern — Cognifyz Technologies</h4>
+                        <p>Mar 2024 – May 2024</p>
+                        <p>Analyzed large datasets using Python (Pandas) to extract insights for decision-making.</p>
+                        <p>Designed Power BI dashboards highlighting key business metrics and performance trends.</p>
+                    </div>
+                </div>
+                <div class="skills">
+                    <h3>Skills & Expertise</h3>
+                    <div class="skill-category">
+                        <h4><span class="skill-icon">💻</span> Programming & Databases</h4>
+                        <ul>
+                            <li>Python</li>
+                            <li>NumPy</li>
+                            <li>Pandas</li>
+                            <li>SQL</li>
+                            <li>Core Java</li>
+                            <li>Core C</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4><span class="skill-icon">📊</span> Data Analysis & Visualization</h4>
+                        <ul>
+                            <li>Excel</li>
+                            <li>Power BI</li>
+                            <li>Matplotlib</li>
+                            <li>Seaborn</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4><span class="skill-icon">🤖</span> Machine Learning</h4>
+                        <ul>
+                            <li>Regression</li>
+                            <li>Classification</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4><span class="skill-icon">🛠️</span> Tools & Platforms</h4>
+                        <ul>
+                            <li>Jupyter Notebook</li>
+                            <li>Streamlit</li>
+                            <li>GitHub</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4><span class="skill-icon">👥</span> Soft Skills</h4>
+                        <ul>
+                            <li>Analytical Thinking</li>
+                            <li>Problem Solving</li>
+                            <li>Communication</li>
+                            <li>Teamwork</li>
+                            <li>Adaptability</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <div class="container">
+            <h2>Projects</h2>
+
+            <div class="projects-grid">
+                <article class="project-card project-card--featured">
+                    <div class="project-featured-badge">Featured Project</div>
+                    <div class="project-top">
+                        <div class="project-icon" aria-hidden="true">🩺</div>
+                        <div class="project-title-wrap">
+                            <h3 class="project-name">SymptomSense</h3>
+                            <span class="project-category">AI Healthcare</span>
+                        </div>
+                    </div>
+
+                    <p class="project-description">AI-powered symptom analysis and medical guidance using machine learning techniques to help interpret symptoms.</p>
+
+                    <div class="project-tags" aria-label="Technology tags">
+                        <span class="project-tag">Flask</span>
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">Machine Learning</span>
+                        <span class="project-tag">Python</span>
+                    </div>
+
+                    <div class="project-actions">
+                        <a class="project-action-btn" href="https://github.com/shaziaafraz/SymptomSence" target="_blank" rel="noopener">GitHub</a>
+                        <a class="project-action-btn project-action-btn-secondary" href="https://symptom-sence.vercel.app/" target="_blank" rel="noopener">Live Demo</a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-top">
+                        <div class="project-icon" aria-hidden="true">🎓</div>
+                        <div class="project-title-wrap">
+                            <h3 class="project-name">Student Grade Prediction</h3>
+                            <span class="project-category">Machine Learning</span>
+                        </div>
+                    </div>
+
+                    <p class="project-description">Predict student grades using ML models based on study and performance-related features.</p>
+
+                    <div class="project-tags" aria-label="Technology tags">
+                        <span class="project-tag">Streamlit</span>
+                        <span class="project-tag">KNN</span>
+                        <span class="project-tag">Python</span>
+                    </div>
+
+                    <div class="project-actions">
+                        <a class="project-action-btn" href="https://github.com/shaziaafraz/Student-Grade-Pretiction" target="_blank" rel="noopener">GitHub</a>
+                        <a class="project-action-btn project-action-btn-secondary" href="https://student-grade-pretiction.streamlit.app/" target="_blank" rel="noopener">Live Demo</a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-top">
+                        <div class="project-icon" aria-hidden="true">🧬</div>
+                        <div class="project-title-wrap">
+                            <h3 class="project-name">Skin Disease Detection</h3>
+                            <span class="project-category">Deep Learning</span>
+                        </div>
+                    </div>
+
+                    <p class="project-description">Deep learning model for detecting skin diseases from images with an end-to-end training and evaluation workflow.</p>
+
+                    <div class="project-tags" aria-label="Technology tags">
+                        <span class="project-tag">Deep Learning</span>
+                        <span class="project-tag">CNN</span>
+                        <span class="project-tag">Computer Vision</span>
+                    </div>
+
+                    <div class="project-actions">
+                        <a class="project-action-btn" href="https://github.com/shaziaafraz/Skin_Disease_Prediction" target="_blank" rel="noopener">GitHub</a>
+                        <a class="project-action-btn project-action-btn-secondary" href="javascript:void(0)" aria-disabled="true">Source Code Available</a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-top">
+                        <div class="project-icon" aria-hidden="true">💳</div>
+                        <div class="project-title-wrap">
+                            <h3 class="project-name">SmartCredit</h3>
+                            <span class="project-category">Machine Learning</span>
+                        </div>
+                    </div>
+
+                    <p class="project-description">Credit default risk prediction using ML features, with a streamlined pipeline for training and evaluation.</p>
+
+                    <div class="project-tags" aria-label="Technology tags">
+                        <span class="project-tag">Machine Learning</span>
+                        <span class="project-tag">Credit Risk</span>
+                        <span class="project-tag">Prediction</span>
+                    </div>
+
+                    <div class="project-actions">
+                        <a class="project-action-btn" href="https://github.com/shaziaafraz/SmartCredit-Credit-Default-Risk-Prediction-System" target="_blank" rel="noopener">GitHub</a>
+                        <a class="project-action-btn project-action-btn-secondary" href="https://smartcredit-credit-default-risk-prediction.streamlit.app/" target="_blank" rel="noopener">Live Demo</a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-top">
+                        <div class="project-icon" aria-hidden="true">🚴</div>
+                        <div class="project-title-wrap">
+                            <h3 class="project-name">Strava Fitness Analytics</h3>
+                            <span class="project-category">Data Analytics</span>
+                        </div>
+                    </div>
+
+                    <p class="project-description">Analyze Strava fitness data to uncover trends and performance insights using analytics and visualization workflows.</p>
+
+                    <div class="project-tags" aria-label="Technology tags">
+                        <span class="project-tag">Data Analytics</span>
+                        <span class="project-tag">SQL</span>
+                        <span class="project-tag">Dashboards</span>
+                    </div>
+
+                    <div class="project-actions">
+                        <a class="project-action-btn" href="https://github.com/shaziaafraz/Strava_Fitness_Data_Analytics" target="_blank" rel="noopener">GitHub</a>
+                        <a class="project-action-btn project-action-btn-secondary" href="javascript:void(0)" aria-disabled="true">Source Code Available</a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-top">
+                        <div class="project-icon" aria-hidden="true">❤️</div>
+                        <div class="project-title-wrap">
+                            <h3 class="project-name">Predicting Mortality of Heart Failure Patients</h3>
+                            <span class="project-category">Healthcare AI</span>
+                        </div>
+                    </div>
+
+                    <p class="project-description">Healthcare AI model to predict mortality risk for heart failure patients with robust data preparation and evaluation.</p>
+
+                    <div class="project-tags" aria-label="Technology tags">
+                        <span class="project-tag">Healthcare AI</span>
+                        <span class="project-tag">Deep Learning</span>
+                        <span class="project-tag">Risk Prediction</span>
+                    </div>
+
+                    <div class="project-actions">
+                        <a class="project-action-btn" href="https://github.com/shaziaafraz/predicting-mortality-of-heart-failure-patients" target="_blank" rel="noopener">GitHub</a>
+                        <a class="project-action-btn project-action-btn-secondary" href="https://predicting-mortality-of-heart-failure-patients.streamlit.app/" target="_blank" rel="noopener">Live Demo</a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-top">
+                        <div class="project-icon" aria-hidden="true">🏠</div>
+                        <div class="project-title-wrap">
+                            <h3 class="project-name">Smart Property Price Predictor</h3>
+                            <span class="project-category">Machine Learning</span>
+                        </div>
+                    </div>
+
+                    <p class="project-description">Machine learning model to predict property prices using structured features and model evaluation for accuracy.</p>
+
+                    <div class="project-tags" aria-label="Technology tags">
+                        <span class="project-tag">Machine Learning</span>
+                        <span class="project-tag">Regression</span>
+                        <span class="project-tag">Prediction</span>
+                    </div>
+
+                    <div class="project-actions">
+                        <a class="project-action-btn" href="https://github.com/shaziaafraz/Smart-Property-Price-Predictor" target="_blank" rel="noopener">GitHub</a>
+                        <a class="project-action-btn project-action-btn-secondary" href="javascript:void(0)" aria-disabled="true">Source Code Available</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <a href="mailto:shaziaafraz23@gmail.com">shaziaafraz23@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <a href="mailto:shaziaafraz23@zohomail.in">shaziaafraz23@zohomail.in</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📱</span>
+                        <span>+91 94941 74137</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">💼</span>
+                        <a href="https://linkedin.com/in/shazia-afraz-9950a6306" target="_blank">LinkedIn</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">🐙</span>
+                        <a href="https://github.com/shaziaafraz" target="_blank">GitHub</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>Shazia Afraz</h3>
+                <p>Data Analyst & Machine Learning Enthusiast</p>
+            </div>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#portfolio">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://linkedin.com/in/shazia-afraz-9950a6306" target="_blank">LinkedIn</a>
+                <a href="https://github.com/shaziaafraz" target="_blank">GitHub</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>THANK YOU</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
